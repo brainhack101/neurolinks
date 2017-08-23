@@ -176,6 +176,7 @@
           let prefixItems = []
           let prefixItem = {}
 					let title = []
+					let url = []
 					for(let i=0; i < gridC.options.length; i++) {
     				if(gridC.options[i].value == gridC.selected){
         			title = gridC.options[i].text
@@ -186,9 +187,14 @@
 						console.log(items[i])
             triple[title] = items[i]['name'].value
             triple['Description'] = items[i]['desc'].value
-            triple['URL'] = items[i]['url'].value.link(items[i]['url'])
+						url = items[i]['url'].value
+						if(url.length > 30){
+            	triple['URL'] = (url.slice(0,27)+'...').link(url)
+						}else{
+            	triple['URL'] = url.link(url)
+						}
             triple['Contributor'] = items[i]['author'].value
-            triple['Organization'] = items[i]['org'].value
+            //triple['Organization'] = items[i]['org'].value
             prefixItem = getPrefixItem(items[i]['subject'].value)
             uri = prefixItem['termWithPrefix']
 						triple['URI'] = uri.link(uri)
@@ -203,7 +209,7 @@
             prefixItem = {}
           }
           console.log("demo.selected", gridComponent.selected)
-          gridComponent.gridColumns = [title, 'Description', 'URL', 'Contributor', 'Organization']
+          gridComponent.gridColumns = [title, 'Description', 'URL', 'Contributor'] //, 'Organization']
           gridComponent.gridData = triples
           gridComponent.prefixColumns = ['URI']
           gridComponent.prefixData = prefixItems

@@ -58,23 +58,37 @@ prov:wasCreatedBy rdf:type owl:ObjectProperty .
 ###  http://purl.obolibrary.org/obo/IAO_0000121
 obo:IAO_0000121 rdf:type owl:AnnotationProperty .
 
+
 #################################################################
 #
 #    Objects
 #
 #################################################################
 
-nl:neurohack	rdf:type owl:ObjectProperty ;
-							rdfs:label "NeuroHack"^^xsd:string ;
-							obo:IAO_0000115 "description"^^xsd:string ;
-							prov:wasCreatedBy "author"^^xsd:string ;
-							dct:source "source url"^^xsd:string ;
-							obo:IAO_0000121 "organization"^^xsd:string .
-
 nl:brainhack101	rdf:type owl:ObjectProperty ;
 								rdfs:label "Brainhack101"^^xsd:string ;
-								obo:IAO_0000115 "description"^^xsd:string ;
-								prov:wasCreatedBy "author"^^xsd:string ;
-								dct:source "source url"^^xsd:string ;
-								obo:IAO_0000121 "organization"^^xsd:string .
+								obo:IAO_0000115 "Introduction to Github, Docker, Jupyter as a foundation for doing open neuroscience"^^xsd:string ;
+								prov:wasCreatedBy "Greg Kiar"^^xsd:string ;
+								dct:source "https://brainhack101.github.io"^^xsd:string ;
+								obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
 
+nl:neurodatasci	rdf:type owl:ObjectProperty ;
+								rdfs:label "NeuroDataScience"^^xsd:string ;
+								obo:IAO_0000115 "Machine learning, neural networks, data visualization and reproducibility"^^xsd:string ;
+								prov:wasCreatedBy "Satra Ghosh"^^xsd:string ;
+								dct:source "https://github.com/neuro-data-science"^^xsd:string ;
+								obo:IAO_0000121 "MIT/HMS"^^xsd:string .
+
+nl:neurosummer	rdf:type owl:ObjectProperty ;
+								rdfs:label "Neuro Summer Schools"^^xsd:string ;
+								obo:IAO_0000115 "List of various Neuro summer schools happening around the world"^^xsd:string ;
+								prov:wasCreatedBy ""^^xsd:string ;
+								dct:source "https://github.com/PhABC/neuroSummerSchools"^^xsd:string ;
+								obo:IAO_0000121 ""^^xsd:string .
+
+nl:repronim			rdf:type owl:ObjectProperty ;
+								rdfs:label "Repronim"^^xsd:string ;
+								obo:IAO_0000115 "Some material for reproducible neuroimaging analyses course"^^xsd:string ;
+								prov:wasCreatedBy "David Kennedy"^^xsd:string ;
+								dct:source "http://www.reproducibleimaging.org/"^^xsd:string ;
+								obo:IAO_0000121 "Repronim"^^xsd:string .
