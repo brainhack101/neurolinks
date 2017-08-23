@@ -1,0 +1,227 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>NeuroLinks - Explore Resources in the Neuroimaging Community!</title>
+  <link href="./lib/term-search.css" type="text/css" rel="stylesheet"/>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <script type='text/javascript' src="./lib/rdfstore_min.js">
+  </script>
+
+  <script type="text/x-template" id="grid-template">
+  <table>
+    <thead>
+      <tr>
+        <th v-for="key in columns">
+          {{ key }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="entry in data">
+        <td v-for="key in columns" v-html="entry[key]">
+          {{ entry[key] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+
+</head>
+
+<body>
+  <br>
+  <div id="gridC">
+    <p> <h3>Select resource you wish to browse</h3></p>
+    <select v-model="selected">
+      <option disabled value="">Please select one</option>
+      <option v-for="option in options" v-bind:value="option.value">
+        {{option.text}}
+      </option>
+    </select>
+    <br>
+    <demo-grid
+      :data="gridData"
+      :columns="gridColumns">
+    </demo-grid>
+  </div>
+
+  <script>
+  let prefixes = {}
+  let prefixArray = []
+  let query = " PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\
+  PREFIX obo:<http://purl.obolibrary.org/obo/>\
+  PREFIX dct:<http://purl.org/dc/terms/>\
+  PREFIX prov:<http://www.w3.org/ns/prov#>\
+  SELECT *\
+  WHERE { ?subject rdfs:label ?name ;\
+    							 obo:IAO_0000115 ?desc ;\
+    							 dct:source ?url ;\
+    							 prov:wasCreatedBy ?author ;\
+    							 obo:IAO_0000121 ?org .\
+        } \
+  "
+  // register the grid component
+  Vue.component('demo-grid', {
+    template: '#grid-template',
+    props: {
+      data: Array,
+      columns: Array
+    },
+    data: function () {
+      var sortOrders = {}
+      this.columns.forEach(function (key) {
+        sortOrders[key] = 1
+      })
+      return {
+        sortKey: '',
+        sortOrders: sortOrders
+      }
+    }
+  })
+  var gridC = new Vue({
+    el: '#gridC',
+    data: {
+      selected:'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/ffb0db62a92b95141d2e2b0bcd37e61185bbbbeb/courses.owl',
+      options:[
+        {text:'Experiment', value:'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/9e8a730318c5c3dd057d7c40afff0aed0612119f/experiments.owl'},
+        {text:'Course', value:'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/ffb0db62a92b95141d2e2b0bcd37e61185bbbbeb/courses.owl'},
+      ],
+      gridColumns: [],
+      gridData: [],
+      prefixColumns: [],
+      prefixData:[]
+    },
+    computed: {
+      showDefaultOwl:{
+        get: function(){
+
+        },
+        // setter
+        set: function (gurl) {
+          $.ajax({
+            type: "GET",
+            url: gurl,
+            success: function(data1){
+              successCallBack(data1,gridC)
+            }
+          })//ajax call
+        }
+      }
+    },
+    watch: {
+      'selected': function() {
+        console.log("gridC.selected", gridC.selected)
+        $.ajax({
+          type: "GET",
+          url: gridC.selected,
+          success: function(data){
+            successCallBack(data,gridC)
+          }
+        })//ajax call
+      }
+    }//end of watch
+  })
+  gridC.showDefaultOwl = 'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/ffb0db62a92b95141d2e2b0bcd37e61185bbbbeb/courses.owl'
+
+  function successCallBack(data,gridComponent){
+    let lines = data.split("\n")
+    for(let i=0;i<lines.length; i++){
+      let line = lines[i].split(" ")
+      if(line[0] == "@prefix"){
+        substrPrefix = line[2].substring(1,line[2].length-2)
+        if(line[1] == ":"){
+          console.log("TODO")
+          prefixes[substrPrefix] = "turtle"
+        }else{
+          prefixes[substrPrefix] = line[1].substring(0,line[1].length-1)
+        }
+      }else if(line[0] == "@base"){
+        prefixes[substrPrefix] = "owl"
+      }else{
+        break;
+      }
+    }
+    console.log("split data:  --\n", prefixes)
+    new rdfstore.Store(function(err, store) {
+      store.load("text/turtle",data,function(err, results){
+        if(err){
+          console.log(err)
+        }
+        store.execute(query,function(success,results) {
+					console.log(results)
+          let items = results
+          let triples = []
+          let triple = {}
+          let prefixItems = []
+          let prefixItem = {}
+					let title = []
+					for(let i=0; i < gridC.options.length; i++) {
+    				if(gridC.options[i].value == gridC.selected){
+        			title = gridC.options[i].text
+       	 			break
+    				}
+					}
+          for(let i = 0 ; i<items.length; i++){
+						console.log(items[i])
+            triple[title] = items[i]['name'].value
+            triple['Description'] = items[i]['desc'].value
+            triple['URL'] = items[i]['url'].value.link(items[i]['url'])
+            triple['Contributor'] = items[i]['author'].value
+            triple['Organization'] = items[i]['org'].value
+            prefixItem = getPrefixItem(items[i]['subject'].value)
+            uri = prefixItem['termWithPrefix']
+						triple['URI'] = uri.link(uri)
+            if(!isExist(triple, triples,'URI')){
+              triples.push(triple)
+            }
+            if(!isExist(prefixItem, prefixItems,'Prefix')){
+              console.log("prefixItem:", prefixItem.Prefix)
+              prefixItems.push(prefixItem)
+            }
+            triple = {}
+            prefixItem = {}
+          }
+          console.log("demo.selected", gridComponent.selected)
+          gridComponent.gridColumns = [title, 'Description', 'URL', 'Contributor', 'Organization']
+          gridComponent.gridData = triples
+          gridComponent.prefixColumns = ['URI']
+          gridComponent.prefixData = prefixItems
+        })//end of store execute
+      })//end of load
+    })//rdf store
+  } //end of successCallBack
+
+  function isExist(obj, arr,prop){
+    for(index=0;index < arr.length; index++){
+      let x = arr[index]
+      if(x[prop] === obj[prop])
+        return true
+    }
+    return false
+  }
+
+  function getPrefixItem(uri){
+    let prefixItem = {}
+    let pfname = uri.split("#")
+    let iri = uri.split("/")
+    for(item in prefixes){
+      if(uri.indexOf(item)!=-1){
+        prefixItem['Prefix'] = prefixes[item]
+        prefixItem['URI'] = item
+        if(pfname.length>1){
+          let parr = iri[iri.length-1].split("#")
+          prefixItem['termWithPrefix'] = prefixes[item]+ ":" + parr[1]
+        }else{
+          prefixItem['termWithPrefix'] = prefixes[item]+ ":" + iri[iri.length-1]
+        }
+      }
+    }
+    return prefixItem
+  }
+</script>
+</body>
+</html>
