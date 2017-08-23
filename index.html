@@ -2,7 +2,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>NeuroLinks - Explore Resources in the Neuroimaging Community!</title>
-  <link href="./lib/term-search.css" type="text/css" rel="stylesheet"/>
+  <link href="./lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+  <link href="./lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -12,7 +13,8 @@
   </script>
 
   <script type="text/x-template" id="grid-template">
-  <table>
+	<div style="padding-left:3%;padding-right:3%">
+  <table class="table table-striped" style="background-color:#cde8f6">
     <thead>
       <tr>
         <th v-for="key in columns">
@@ -28,26 +30,41 @@
       </tr>
     </tbody>
   </table>
+	</div>
 </script>
-
 </head>
 
 <body>
-  <br>
-  <div id="gridC">
-    <p> <h3>Select resource you wish to browse</h3></p>
-    <select v-model="selected">
-      <option disabled value="">Please select one</option>
-      <option v-for="option in options" v-bind:value="option.value">
-        {{option.text}}
-      </option>
-    </select>
-    <br>
-    <demo-grid
-      :data="gridData"
-      :columns="gridColumns">
-    </demo-grid>
-  </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://brainhack101.github.io/neurolinks">NeuroLinks</a>
+        </div>
+      </div>
+    </nav>
+	<div class="container theme-showcase" style="padding-top:5em" role="main">
+		<div class="row jumbotron">
+			<h1 style="display:inline">NeuroLinks</h1><br/><h3 style="display:inline">Easily find and share resources for computational neuroscience</h3>
+		</div>
+		<div class="row">
+  		<div id="gridC">
+    		<div class="col-md-2"><h3>Resource:</h3>
+   			<div class="form-group">
+					<select v-model="selected" class="form-control">
+      			<option disabled value="">Please select one</option>
+      			<option v-for="option in options" v-bind:value="option.value">
+        			{{option.text}}
+      			</option>
+    			</select>
+				</div>
+				</div>
+    		<div class="col-md-10" style="height:1em">
+    		<demo-grid
+      		:data="gridData"
+      		:columns="gridColumns">
+    		</demo-grid>
+			</div>
+  	</div>
 
   <script>
   let prefixes = {}
@@ -223,5 +240,7 @@
     return prefixItem
   }
 </script>
+	</div>
+<script src="./lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
