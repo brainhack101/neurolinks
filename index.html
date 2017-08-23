@@ -85,10 +85,10 @@
   var gridC = new Vue({
     el: '#gridC',
     data: {
-      selected:'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/ffb0db62a92b95141d2e2b0bcd37e61185bbbbeb/courses.owl',
+      selected:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/course.owl',
       options:[
         {text:'Experiment', value:'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/9e8a730318c5c3dd057d7c40afff0aed0612119f/experiments.owl'},
-        {text:'Course', value:'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/ffb0db62a92b95141d2e2b0bcd37e61185bbbbeb/courses.owl'},
+        {text:'Course', value:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/course.owl'},
       ],
       gridColumns: [],
       gridData: [],
@@ -125,7 +125,7 @@
       }
     }//end of watch
   })
-  gridC.showDefaultOwl = 'https://gist.githubusercontent.com/gkiar/f9f88b4783c533df936e6bc9d210f259/raw/ffb0db62a92b95141d2e2b0bcd37e61185bbbbeb/courses.owl'
+  gridC.showDefaultOwl = 'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/course.owl'
 
   function successCallBack(data,gridComponent){
     let lines = data.split("\n")
