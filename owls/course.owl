@@ -92,3 +92,10 @@ nl:repronim			rdf:type owl:ObjectProperty ;
 								prov:wasCreatedBy "David Kennedy"^^xsd:string ;
 								dct:source "http://www.reproducibleimaging.org/"^^xsd:string ;
 								obo:IAO_0000121 "Repronim"^^xsd:string .
+								
+nl:brainintensive		rdf:type owl:ObjectProperty ;
+								rdfs:label "Online Brain Intensive"^^xsd:string ;
+								obo:IAO_0000115 "Online course for preparing participants for their first brainhack"^^xsd:string ;
+								prov:wasCreatedBy "Sara Kimmich"^^xsd:string ;
+								dct:source "https://www.onlinebrainintensive.com/"^^xsd:string ;
+								obo:IAO_0000121 ""^^xsd:string .
