@@ -65,10 +65,38 @@ obo:IAO_0000121 rdf:type owl:AnnotationProperty .
 #
 #################################################################
 
-nl:dummyone	rdf:type owl:ObjectProperty ;
-						rdfs:label "Dummy"^^xsd:string ;
-						obo:IAO_0000115 "Dummy for data repos "^^xsd:string ;
-						prov:wasCreatedBy "Greg Kiar"^^xsd:string ;
-						dct:source "https://brainhack101.github.io"^^xsd:string ;
-						obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
+nl:openneuro	rdf:type owl:ObjectProperty ;
+							rdfs:label "OpenNeuro"^^xsd:string ;
+							obo:IAO_0000115 "A free and open platform for analyzing and sharing neuroimaging data"^^xsd:string ;
+							prov:wasCreatedBy "Chris Gorgolewski"^^xsd:string ;
+							dct:source "https://openneuro.org/"^^xsd:string ;
+							obo:IAO_0000121 "Stanford Center for Reproducible Neuroscience"^^xsd:string .
+
+nl:brainbox	rdf:type owl:ObjectProperty ;
+						rdfs:label "BrainBox + Metasearch"^^xsd:string ;
+						obo:IAO_0000115 "A web platform for collaborating on open brain imaging data"^^xsd:string ;
+						prov:wasCreatedBy "Roberto Toro"^^xsd:string ;
+						dct:source "http://openneu.ro/"^^xsd:string ;
+						obo:IAO_0000121 ""^^xsd:string .
+
+nl:datalad	rdf:type owl:ObjectProperty ;
+						rdfs:label "Datalad"^^xsd:string ;
+						obo:IAO_0000115 "DataLad aims to provide access to scientific data available from various sources through a single convenient interface"^^xsd:string ;
+						prov:wasCreatedBy "Yaroslav Halchenko"^^xsd:string ;
+						dct:source "http://datasets.datalad.org/"^^xsd:string ;
+						obo:IAO_0000121 ""^^xsd:string .
+
+nl:openmorph	rdf:type owl:ObjectProperty ;
+							rdfs:label "OpenMorph"^^xsd:string ;
+							obo:IAO_0000115 "Curated list of open access databases with human structural MRI"^^xsd:string ;
+							prov:wasCreatedBy "Chris Madan"^^xsd:string ;
+							dct:source "https://github.com/cMadan/openMorph"^^xsd:string ;
+							obo:IAO_0000121 ""^^xsd:string .
+
+nl:loris	rdf:type owl:ObjectProperty ;
+					rdfs:label "Loris"^^xsd:string ;
+					obo:IAO_0000115 "Portal for various open-access neuroimaging datasets"^^xsd:string ;
+					prov:wasCreatedBy "Samir Das"^^xsd:string ;
+					dct:source "https://github.com/aces/Loris/wiki"^^xsd:string ;
+					obo:IAO_0000121 ""^^xsd:string .
 
