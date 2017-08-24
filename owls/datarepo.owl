@@ -97,6 +97,6 @@ nl:loris	rdf:type owl:ObjectProperty ;
 					rdfs:label "Loris"^^xsd:string ;
 					obo:IAO_0000115 "Portal for various open-access neuroimaging datasets"^^xsd:string ;
 					prov:wasCreatedBy "Samir Das"^^xsd:string ;
-					dct:source "https://github.com/aces/Loris/wiki"^^xsd:string ;
+					dct:source "https://github.com/aces/Loris/wiki/Open-LORIS"^^xsd:string ;
 					obo:IAO_0000121 ""^^xsd:string .
 
