@@ -65,10 +65,9 @@ obo:IAO_0000121 rdf:type owl:AnnotationProperty .
 #
 #################################################################
 
-nl:dummyone	rdf:type owl:ObjectProperty ;
-						rdfs:label "Dummy"^^xsd:string ;
-						obo:IAO_0000115 "Dummy for tools"^^xsd:string ;
-						prov:wasCreatedBy "Greg Kiar"^^xsd:string ;
-						dct:source "https://brainhack101.github.io"^^xsd:string ;
-						obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
-
+nl:neurodocker rdf:type owl:ObjectProperty ;
+						   rdfs:label "Neurodocker"^^xsd:string ;
+						   obo:IAO_0000115 "Generate custom Docker images with neuroimaging software, and minimize existing Docker containers."^^xsd:string ;
+						   prov:wasCreatedBy "Jakub Kaczmarzyk"^^xsd:string ;
+						   dct:source "https://github.com/kaczmarj/neurodocker"^^xsd:string ;
+						   obo:IAO_0000121 ""^^xsd:string .
