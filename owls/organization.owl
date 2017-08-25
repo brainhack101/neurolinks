@@ -65,10 +65,24 @@ obo:IAO_0000121 rdf:type owl:AnnotationProperty .
 #
 #################################################################
 
-nl:dummyone	rdf:type owl:ObjectProperty ;
-						rdfs:label "Dummy"^^xsd:string ;
-						obo:IAO_0000115 "Dummy for organizations"^^xsd:string ;
-						prov:wasCreatedBy "Greg Kiar"^^xsd:string ;
-						dct:source "https://brainhack101.github.io"^^xsd:string ;
-						obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
+nl:brainhack101	rdf:type owl:ObjectProperty ;
+								rdfs:label "Brainhack101"^^xsd:string ;
+								obo:IAO_0000115 ""^^xsd:string ;
+								prov:wasCreatedBy "OHBM Open Science SIG"^^xsd:string ;
+								dct:source "https://github.com/brainhack101"^^xsd:string ;
+								obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
+
+nl:neurodatasci	rdf:type owl:ObjectProperty ;
+								rdfs:label "Neuro Data Science"^^xsd:string ;
+								obo:IAO_0000115 ""^^xsd:string ;
+								prov:wasCreatedBy "Chris Holdgraf"^^xsd:string ;
+								dct:source "https://github.com/neuro-data-science"^^xsd:string ;
+								obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
+
+nl:repronim	rdf:type owl:ObjectProperty ;
+								rdfs:label "ReproNim"^^xsd:string ;
+								obo:IAO_0000115 ""^^xsd:string ;
+								prov:wasCreatedBy "David Kennedy"^^xsd:string ;
+								dct:source "http://www.reproducibleimaging.org/"^^xsd:string ;
+								obo:IAO_0000121 ""^^xsd:string .
 

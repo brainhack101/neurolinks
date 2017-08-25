@@ -86,6 +86,13 @@ nl:neurosummer	rdf:type owl:ObjectProperty ;
 								dct:source "https://github.com/PhABC/neuroSummerSchools"^^xsd:string ;
 								obo:IAO_0000121 ""^^xsd:string .
 
+nl:brainintensive		rdf:type owl:ObjectProperty ;
+								rdfs:label "Online Brain Intensive"^^xsd:string ;
+								obo:IAO_0000115 "Online course for preparing participants for their first brainhack"^^xsd:string ;
+								prov:wasCreatedBy "Sara Kimmich"^^xsd:string ;
+								dct:source "https://www.onlinebrainintensive.com/"^^xsd:string ;
+								obo:IAO_0000121 ""^^xsd:string .
+
 nl:repronim			rdf:type owl:ObjectProperty ;
 								rdfs:label "Repronim"^^xsd:string ;
 								obo:IAO_0000115 "Some material for reproducible neuroimaging analyses course"^^xsd:string ;
@@ -93,9 +100,3 @@ nl:repronim			rdf:type owl:ObjectProperty ;
 								dct:source "http://www.reproducibleimaging.org/"^^xsd:string ;
 								obo:IAO_0000121 "Repronim"^^xsd:string .
 								
-nl:brainintensive		rdf:type owl:ObjectProperty ;
-								rdfs:label "Online Brain Intensive"^^xsd:string ;
-								obo:IAO_0000115 "Online course for preparing participants for their first brainhack"^^xsd:string ;
-								prov:wasCreatedBy "Sara Kimmich"^^xsd:string ;
-								dct:source "https://www.onlinebrainintensive.com/"^^xsd:string ;
-								obo:IAO_0000121 ""^^xsd:string .

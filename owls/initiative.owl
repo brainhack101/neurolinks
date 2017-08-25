@@ -65,10 +65,24 @@ obo:IAO_0000121 rdf:type owl:AnnotationProperty .
 #
 #################################################################
 
-nl:dummyone	rdf:type owl:ObjectProperty ;
-						rdfs:label "Dummy"^^xsd:string ;
-						obo:IAO_0000115 "Dummy for initiatives"^^xsd:string ;
-						prov:wasCreatedBy "Greg Kiar"^^xsd:string ;
-						dct:source "https://brainhack101.github.io"^^xsd:string ;
-						obo:IAO_0000121 "OHBM Open Science SIG"^^xsd:string .
+nl:bids	rdf:type owl:ObjectProperty ;
+				rdfs:label "BIDS"^^xsd:string ;
+				obo:IAO_0000115 "A simple and intuitive way to organize and describe your neuroimaging and behavioral data"^^xsd:string ;
+				prov:wasCreatedBy "Chris Gorgolewski"^^xsd:string ;
+				dct:source "http://bids.neuroimaging.io/"^^xsd:string ;
+				obo:IAO_0000121 "Stanford Center for Reproducible Neuroscience"^^xsd:string .
+
+nl:nidm	rdf:type owl:ObjectProperty ;
+				rdfs:label "NIDM"^^xsd:string ;
+				obo:IAO_0000115 "A collection of specification documents that define extensions to the W3C PROV standard for the domain of human brain mapping"^^xsd:string ;
+				prov:wasCreatedBy "David Keator"^^xsd:string ;
+				dct:source "http://nidm.nidash.org/"^^xsd:string ;
+				obo:IAO_0000121 "INCF"^^xsd:string .
+
+nl:nidmw	rdf:type owl:ObjectProperty ;
+					rdfs:label "NIDM-W"^^xsd:string ;
+					obo:IAO_0000115 "A model to capture workflow specification and traces across software and workflow tools"^^xsd:string ;
+					prov:wasCreatedBy "Satra Ghosh"^^xsd:string ;
+					dct:source "https://docs.google.com/document/d/1OjdvKyjSuLXoPrmH18SPj2Fe1bvkomQjowY7TG-F8MQ/edit"^^xsd:string ;
+					obo:IAO_0000121 "INCF"^^xsd:string .
 

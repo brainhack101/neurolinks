@@ -65,13 +65,6 @@ obo:IAO_0000121 rdf:type owl:AnnotationProperty .
 #
 #################################################################
 
-nl:openneuro	rdf:type owl:ObjectProperty ;
-							rdfs:label "OpenNeuro"^^xsd:string ;
-							obo:IAO_0000115 "A free and open platform for analyzing and sharing neuroimaging data"^^xsd:string ;
-							prov:wasCreatedBy "Chris Gorgolewski"^^xsd:string ;
-							dct:source "https://openneuro.org/"^^xsd:string ;
-							obo:IAO_0000121 "Stanford Center for Reproducible Neuroscience"^^xsd:string .
-
 nl:brainbox	rdf:type owl:ObjectProperty ;
 						rdfs:label "BrainBox + Metasearch"^^xsd:string ;
 						obo:IAO_0000115 "A web platform for collaborating on open brain imaging data"^^xsd:string ;
@@ -86,6 +79,13 @@ nl:datalad	rdf:type owl:ObjectProperty ;
 						dct:source "http://datasets.datalad.org/"^^xsd:string ;
 						obo:IAO_0000121 ""^^xsd:string .
 
+nl:loris	rdf:type owl:ObjectProperty ;
+					rdfs:label "Loris"^^xsd:string ;
+					obo:IAO_0000115 "Portal for various open-access neuroimaging datasets"^^xsd:string ;
+					prov:wasCreatedBy "Samir Das"^^xsd:string ;
+					dct:source "https://github.com/aces/Loris/wiki/Open-LORIS"^^xsd:string ;
+					obo:IAO_0000121 ""^^xsd:string .
+
 nl:openmorph	rdf:type owl:ObjectProperty ;
 							rdfs:label "OpenMorph"^^xsd:string ;
 							obo:IAO_0000115 "Curated list of open access databases with human structural MRI"^^xsd:string ;
@@ -93,10 +93,10 @@ nl:openmorph	rdf:type owl:ObjectProperty ;
 							dct:source "https://github.com/cMadan/openMorph"^^xsd:string ;
 							obo:IAO_0000121 ""^^xsd:string .
 
-nl:loris	rdf:type owl:ObjectProperty ;
-					rdfs:label "Loris"^^xsd:string ;
-					obo:IAO_0000115 "Portal for various open-access neuroimaging datasets"^^xsd:string ;
-					prov:wasCreatedBy "Samir Das"^^xsd:string ;
-					dct:source "https://github.com/aces/Loris/wiki/Open-LORIS"^^xsd:string ;
-					obo:IAO_0000121 ""^^xsd:string .
+nl:openneuro	rdf:type owl:ObjectProperty ;
+							rdfs:label "OpenNeuro"^^xsd:string ;
+							obo:IAO_0000115 "A free and open platform for analyzing and sharing neuroimaging data"^^xsd:string ;
+							prov:wasCreatedBy "Chris Gorgolewski"^^xsd:string ;
+							dct:source "https://openneuro.org/"^^xsd:string ;
+							obo:IAO_0000121 "Stanford Center for Reproducible Neuroscience"^^xsd:string .
 
