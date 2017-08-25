@@ -100,9 +100,9 @@ nl:repronim			rdf:type owl:ObjectProperty ;
 								dct:source "http://www.reproducibleimaging.org/"^^xsd:string ;
 								obo:IAO_0000121 "Repronim"^^xsd:string .
 
-nl:labhacks		rdf:type owl:ObjectProperty ;
-							rdfs:label "LabHacks"^^xsd:string ;
-							obo:IAO_0000115 "Resources for data driven neuroscientists."^^xsd:string ;
-							prov:wasCreatedBy "Patrick Beukema"^^xsd:string ;
-		  				dct:source "https://github.com/pbeukema/LabHacks"^^xsd:string ;
-   						obo:IAO_0000121 "LabHacks"^^xsd:string .
+nl:labhacks		  rdf:type owl:ObjectProperty ;
+                rdfs:label "LabHacks"^^xsd:string ;
+                obo:IAO_0000115 "Resources for data driven neuroscientists."^^xsd:string ;
+                prov:wasCreatedBy "Patrick Beukema"^^xsd:string ;
+                dct:source "https://github.com/pbeukema/LabHacks"^^xsd:string ;
+                obo:IAO_0000121 "LabHacks"^^xsd:string .
