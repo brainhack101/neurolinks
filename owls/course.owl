@@ -93,10 +93,9 @@ nl:brainintensive		rdf:type owl:ObjectProperty ;
 								dct:source "https://www.onlinebrainintensive.com/"^^xsd:string ;
 								obo:IAO_0000121 ""^^xsd:string .
 
-nl:repronim			rdf:type owl:ObjectProperty ;
-								rdfs:label "Repronim"^^xsd:string ;
-								obo:IAO_0000115 "Some material for reproducible neuroimaging analyses course"^^xsd:string ;
-								prov:wasCreatedBy "David Kennedy"^^xsd:string ;
-								dct:source "http://www.reproducibleimaging.org/"^^xsd:string ;
-								obo:IAO_0000121 "Repronim"^^xsd:string .
-								
+nl:labhacks		rdf:type owl:ObjectProperty ;
+								rdfs:label "LabHacks"^^xsd:string ;
+								obo:IAO_0000115 "Resources for data driven neuroscientists."^^xsd:string ;
+								prov:wasCreatedBy "Patrick Beukema"^^xsd:string ;
+								dct:source "https://github.com/pbeukema/LabHacks"^^xsd:string ;
+								obo:IAO_0000121 "LabHacks"^^xsd:string .
