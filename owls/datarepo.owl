@@ -99,4 +99,9 @@ nl:openneuro	rdf:type owl:ObjectProperty ;
 							prov:wasCreatedBy "Chris Gorgolewski"^^xsd:string ;
 							dct:source "https://openneuro.org/"^^xsd:string ;
 							obo:IAO_0000121 "Stanford Center for Reproducible Neuroscience"^^xsd:string .
-
+nl:nitrcir	rdf:type owl:ObjectProperty ;
+							rdfs:label "NITRC-IR"^^xsd:string ;
+							obo:IAO_0000115 "The NITRC Image Repository (IR) is a free, cureated XNAT-based platform for sharing neuroimaging data as part of the NITRC enterprise of resources"^^xsd:string ;
+							prov:wasCreatedBy "David N. Kennedy"^^xsd:string ;
+							dct:source "https://www.nitrc.org/ir/"^^xsd:string ;
+							obo:IAO_0000121 "Neuroimaging Informatics Tools and Resources Clearinghouse"^^xsd:string .
