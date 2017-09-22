@@ -71,3 +71,18 @@ nl:neurodocker rdf:type owl:ObjectProperty ;
 						   prov:wasCreatedBy "Jakub Kaczmarzyk"^^xsd:string ;
 						   dct:source "https://github.com/kaczmarj/neurodocker"^^xsd:string ;
 						   obo:IAO_0000121 ""^^xsd:string .
+nl:neurodocker rdf:type owl:ObjectProperty ;
+    rdfs:label "Niak_fmri_preprocess"^^xsd:string ;
+    obo:IAO_0000115 "fMRI pre-processing pipeline as available in Niak. More information at https://github.com/SIMEXP/niak"^^xsd:string ;
+    prov:wasCreatedBy "Pierre-Olivier Quirion"^^xsd:string ;
+    dct:source "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/FmriPreprocess.json"^^xsd:string ;
+    nl:has_boutiques:true			
+    obo:IAO_0000121 ""^^xsd:string .
+
+nl:neurodocker rdf:type owl:ObjectProperty ;
+    rdfs:label "PSOM Worker"^^xsd:string ;
+    obo:IAO_0000115 "A worker to execute PSOM tasks. Meant to be launched by PSOM itself."^^xsd:string ;
+    prov:wasCreatedBy "Pierre-Olivier Quirion"^^xsd:string ;
+    dct:source "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/PsomWorker.json"^^xsd:string ;
+    nl:has_boutiques:true			
+    obo:IAO_0000121 ""^^xsd:string .
