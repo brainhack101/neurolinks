@@ -1,0 +1,86 @@
+{
+	"ontologies": [
+		"@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .",
+		"@prefix nl: <http://brainhack101.github.io/neurolinks/> .",
+		"@prefix bfo: <http://www.ifomis.org/bfo/1.1#> .",
+		"@prefix dct: <http://purl.org/dc/terms/> .",
+		"@prefix nlx: <http://neurolex.org/wiki/> .",
+		"@prefix obo: <http://purl.obolibrary.org/obo/> .",
+		"@prefix owl: <http://www.w3.org/2002/07/owl#> .",
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
+		"@prefix sio: <http://semanticscience.org/resource/> .",
+		"@prefix xml: <http://www.w3.org/XML/1998/namespace> .",
+		"@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+		"@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .",
+		"@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .",
+		"@prefix meta: <http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl#> .",
+		"@prefix nidm: <http://purl.org/nidash/nidm#> .",
+		"@prefix onli: <http://neurolog.unice.fr/ontoneurolog/v3.0/instrument.owl#> .",
+		"@prefix prov: <http://www.w3.org/ns/prov#> .",
+		"@prefix provone: <http://purl.org/provone#> .",
+		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+		"@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .",
+		"@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .",
+		"@prefix swrl: <http://www.w3.org/2003/11/swrl#> .",
+		"@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .",
+		"@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> ."
+	],
+	"terms": [
+		{
+			"label": "description",
+			"pretty": "Description",
+			"priority": 2,
+			"identity": "obo:IAO_0000115",
+			"rdf:type": "AnnotationProperty",
+			"description": "brief description of the entity"
+		},
+		{
+			"label": "url",
+			"pretty": "URL",
+			"priority": 4,
+			"identity": "dct:source",
+			"rdf:type": "AnnotationProperty",
+			"description": "source URL for accessing the entity"
+		},
+		{
+			"label": "label",
+			"pretty": "Initiative",
+			"priority": 1,
+			"identity": "rdfs:label",
+			"rdf:type": "AnnotationProperty",
+			"description": "entity name"
+		},
+		{
+			"label": "author",
+			"pretty": "Lead",
+			"priority": 3,
+			"identity": "prov:wasCreatedBy",
+			"rdf:type": "AnnotationProperty",
+			"description": "the corresponding author of the entity"
+		}
+	],
+	"entities": [
+		{
+			"identity": "nl:bids",
+			"label": "BIDS",
+			"description": "A simple and intuitive way to organize and describe neuroimaging and behavioral data",
+			"url": "http://bids.neuroimaging.io",
+			"author": "Chris Gorgolewski"
+		},
+		{
+			"identity": "nl:nidm",
+			"label": "NIDM",
+			"description": "A collection of specification documents that define extensions to the W3C PROV standard for the domain of human brain mapping",
+			"url": "http://nidm.nidash.org/",
+			"author": "David Keator"
+		},
+		{
+			"identity": "nl:nidmw",
+			"label": "NIDM-W",
+			"description": "A model to capture workflow specifation and traces across softare workflow tools",
+			"author": "David Kennedy",
+			"url": "http://www.reproducibleimaging.org",
+			"author": "Satra Ghosh"
+		}
+	]
+}

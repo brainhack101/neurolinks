@@ -57,7 +57,7 @@
       			</option>
     			</select>
 				</div>
-				<p>Add your resource by editing the corresponding OWL file, <a href="https://github.com/brainhack101/neurolinks">here!</a></p>
+				<p>Add your resource by opening an issue <a href="https://github.com/brainhack101/neurolinks">here!</a></p>
 				</div>
     		<div class="col-md-10" style="height:1em">
     		<demo-grid
@@ -68,21 +68,6 @@
   	</div>
 
   <script>
-  let prefixes = {}
-  let prefixArray = []
-  let query = " PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\
-  PREFIX obo:<http://purl.obolibrary.org/obo/>\
-  PREFIX dct:<http://purl.org/dc/terms/>\
-  PREFIX prov:<http://www.w3.org/ns/prov#>\
-  SELECT *\
-  WHERE { ?subject rdfs:label ?name ;\
-    							 obo:IAO_0000115 ?desc ;\
-    							 dct:source ?url ;\
-    							 prov:wasCreatedBy ?author ;\
-    							 obo:IAO_0000121 ?org .\
-        } \
-  "
-  // register the grid component
   Vue.component('demo-grid', {
     template: '#grid-template',
     props: {
@@ -103,152 +88,108 @@
   var gridC = new Vue({
     el: '#gridC',
     data: {
-      selected:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/course.owl',
+      selected:'none',
       options:[
-        {text:'Course', value:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/course.owl'},
-        {text:'Tool', value:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/tool.owl'},
-        {text:'Data Repos', value:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/datarepo.owl'},
-        {text:'Organization', value:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/organization.owl'},
-        {text:'Open Initiative', value:'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/initiative.owl'},
+        {text:'Course', value:'jsons/course.json'},
+        {text:'Data', value:'jsons/data.json'},
+        {text:'Initiative', value:'jsons/initiative.json'},
+        {text:'Organization', value:'jsons/organization.json'},
+        {text:'Tool', value:'jsons/tool.json'}
       ],
       gridColumns: [],
       gridData: [],
-      prefixColumns: [],
-      prefixData:[]
     },
     computed: {
-      showDefaultOwl:{
+      showDefault:{
         get: function(){
-
-        },
-        // setter
-        set: function (gurl) {
-          $.ajax({
-            type: "GET",
-            url: gurl,
-            success: function(data1){
-              successCallBack(data1,gridC)
-            }
-          })//ajax call
-        }
-      }
-    },
+        		 },
+        set: function () {
+        			 console.log("gridC.selected", gridC.selected)
+							 load_json(gridC)
+      			 }
+				}
+     },
     watch: {
       'selected': function() {
         console.log("gridC.selected", gridC.selected)
-        $.ajax({
-          type: "GET",
-          url: gridC.selected,
-          success: function(data){
-            successCallBack(data,gridC)
-          }
-        })//ajax call
+				load_json(gridC)
       }
     }//end of watch
   })
-  gridC.showDefaultOwl = 'https://raw.githubusercontent.com/brainhack101/neurolinks/master/owls/course.owl'
 
-  function successCallBack(data,gridComponent){
-    let lines = data.split("\n")
-    for(let i=0;i<lines.length; i++){
-      let line = lines[i].split(" ")
-      if(line[0] == "@prefix"){
-        substrPrefix = line[2].substring(1,line[2].length-2)
-        if(line[1] == ":"){
-          console.log("TODO")
-          prefixes[substrPrefix] = "turtle"
-        }else{
-          prefixes[substrPrefix] = line[1].substring(0,line[1].length-1)
-        }
-      }else if(line[0] == "@base"){
-        prefixes[substrPrefix] = "owl"
-      }else{
-        break;
-      }
-    }
-    console.log("split data:  --\n", prefixes)
-    new rdfstore.Store(function(err, store) {
-      store.load("text/turtle",data,function(err, results){
-        if(err){
-          console.log(err)
-        }
-        store.execute(query,function(success,results) {
-					console.log(results)
-          let items = results
-          let triples = []
-          let triple = {}
-          let prefixItems = []
-          let prefixItem = {}
-					let title = []
-					let url = []
-					for(let i=0; i < gridC.options.length; i++) {
-    				if(gridC.options[i].value == gridC.selected){
-        			title = gridC.options[i].text
-       	 			break
-    				}
-					}
-          for(let i = 0 ; i<items.length; i++){
-						console.log(items[i])
-            triple[title] = items[i]['name'].value
-            triple['Description'] = items[i]['desc'].value
-						url = items[i]['url'].value
-						if(url.length > 30){
-            	triple['URL'] = (url.slice(0,27)+'...').link(url)
-						}else{
-            	triple['URL'] = url.link(url)
+	load_json = function(gc) {
+  	var xmlhttp;
+  	xmlhttp = new XMLHttpRequest();
+  	xmlhttp.onreadystatechange = function(){
+  		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				var json_string = xmlhttp.responseText;
+				var json_obj = JSON.parse( json_string );
+				console.log(json_obj)
+				parse_data(json_obj, gc)
+  		}
+  	}
+  	xmlhttp.open("GET", gridC.selected, true);
+  	xmlhttp.send();
+	};
+
+	parse_data = function(data, gc) {
+		var onts = data.ontologies;
+		var terms = data.terms;
+		var items = data.entities;
+		
+		// Reorganize columns based on priority
+		terms.sort(function(a, b){
+  		return a.priority > b.priority;
+		});
+		gc.gridColumns = []
+		terms.forEach( function(term){
+			if (! ('hide' in term && term.hide == true)) {
+      	gc.gridColumns.push(term.pretty)
+			}
+		});
+		
+		var stacks = []
+		items.forEach( function(itm){
+			var stack = {}
+			gc.gridColumns.forEach( function(term){
+				var ind = terms.find(function(a) {return a.pretty === term}).label
+				switch(term){
+					case "URL":
+						stack[term] = shorturl(itm[ind], 30 - (terms.length-5)*5 )
+						break;
+					case "Boutiques":
+						if (itm[ind]) {
+							stack[term] = "Yes".link(itm[ind])
+						} else {
+							stack[term] = "No"
 						}
-            triple['Contributor'] = items[i]['author'].value
-            //triple['Organization'] = items[i]['org'].value
-            prefixItem = getPrefixItem(items[i]['subject'].value)
-            uri = prefixItem['termWithPrefix']
-						triple['URI'] = uri.link(uri)
-            if(!isExist(triple, triples,'URI')){
-              triples.push(triple)
-            }
-            if(!isExist(prefixItem, prefixItems,'Prefix')){
-              console.log("prefixItem:", prefixItem.Prefix)
-              prefixItems.push(prefixItem)
-            }
-            triple = {}
-            prefixItem = {}
-          }
-          console.log("demo.selected", gridComponent.selected)
-          gridComponent.gridColumns = [title, 'Description', 'URL', 'Contributor'] //, 'Organization']
-          gridComponent.gridData = triples
-          gridComponent.prefixColumns = ['URI']
-          gridComponent.prefixData = prefixItems
-        })//end of store execute
-      })//end of load
-    })//rdf store
-  } //end of successCallBack
+						break;
+					default:
+						stack[term] = itm[ind]
+				}
+			});
+			stacks.push(stack);
+		});
+		
+		// Reorganize columns based on name
+		stacks.sort(function(a, b){
+			var loc = gc.gridColumns[0]
+  		return a[loc].toUpperCase() > b[loc].toUpperCase();
+		});
+		console.log(stacks);
+		gc.gridData = stacks
+	};
+	
+	shorturl = function(url, len) {
+		if (url.length > len) {
+    	return (url.slice(0,len-3)+'...').link(url)
+		} else {
+      return url.link(url)
+		}
+	};
+	
+	gridC.selected = 'jsons/course.json'
 
-  function isExist(obj, arr,prop){
-    for(index=0;index < arr.length; index++){
-      let x = arr[index]
-      if(x[prop] === obj[prop])
-        return true
-    }
-    return false
-  }
-
-  function getPrefixItem(uri){
-    let prefixItem = {}
-    let pfname = uri.split("#")
-    let iri = uri.split("/")
-    for(item in prefixes){
-      if(uri.indexOf(item)!=-1){
-        prefixItem['Prefix'] = prefixes[item]
-        prefixItem['URI'] = item
-        if(pfname.length>1){
-          let parr = iri[iri.length-1].split("#")
-          prefixItem['termWithPrefix'] = prefixes[item]+ ":" + parr[1]
-        }else{
-          prefixItem['termWithPrefix'] = prefixes[item]+ ":" + iri[iri.length-1]
-        }
-      }
-    }
-    return prefixItem
-  }
 </script>
 	</div>
 <script src="./lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
