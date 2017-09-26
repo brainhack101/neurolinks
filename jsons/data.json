@@ -1,0 +1,107 @@
+{
+	"ontologies": [
+		"@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .",
+		"@prefix nl: <http://brainhack101.github.io/neurolinks/> .",
+		"@prefix bfo: <http://www.ifomis.org/bfo/1.1#> .",
+		"@prefix dct: <http://purl.org/dc/terms/> .",
+		"@prefix nlx: <http://neurolex.org/wiki/> .",
+		"@prefix obo: <http://purl.obolibrary.org/obo/> .",
+		"@prefix owl: <http://www.w3.org/2002/07/owl#> .",
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
+		"@prefix sio: <http://semanticscience.org/resource/> .",
+		"@prefix xml: <http://www.w3.org/XML/1998/namespace> .",
+		"@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+		"@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .",
+		"@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .",
+		"@prefix meta: <http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl#> .",
+		"@prefix nidm: <http://purl.org/nidash/nidm#> .",
+		"@prefix onli: <http://neurolog.unice.fr/ontoneurolog/v3.0/instrument.owl#> .",
+		"@prefix prov: <http://www.w3.org/ns/prov#> .",
+		"@prefix provone: <http://purl.org/provone#> .",
+		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+		"@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .",
+		"@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .",
+		"@prefix swrl: <http://www.w3.org/2003/11/swrl#> .",
+		"@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .",
+		"@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> ."
+	],
+	"terms": [
+		{
+			"label": "description",
+			"pretty": "Description",
+			"priority": 2,
+			"identity": "obo:IAO_0000115",
+			"rdf:type": "AnnotationProperty",
+			"description": "brief description of the entity"
+		},
+		{
+			"label": "url",
+			"pretty": "URL",
+			"priority": 4,
+			"identity": "dct:source",
+			"rdf:type": "AnnotationProperty",
+			"description": "source URL for accessing the entity"
+		},
+		{
+			"label": "label",
+			"pretty": "Data Repository",
+			"priority": 1,
+			"identity": "rdfs:label",
+			"rdf:type": "AnnotationProperty",
+			"description": "entity name"
+		},
+		{
+			"label": "author",
+			"pretty": "Provider",
+			"hide": false,
+			"priority": 3,
+			"identity": "prov:wasCreatedBy",
+			"rdf:type": "ObjectProperty",
+			"description": "the corresponding author of the entity"
+		}
+	],
+	"entities": [
+		{
+			"identity": "nl:brainbox",
+			"label": "Brainbox",
+			"description": "A web platform for collaborating on open brain imaging data",
+			"author": "Roberto Toro",
+			"url": "http://openneu.ro"
+		},
+		{
+			"identity": "nl:datalad",
+			"label": "Datalad",
+			"description": "DataLad aims to provide access to scientific data available from various sources through a single convenient interface",
+			"author": "Yaroslav Halchenko",
+			"url": "http://datasets.datalad.org"
+		},
+		{
+			"identity": "nl:loris",
+			"label": "LORIS",
+			"description": "Portal for various open-access neuroimaging datasets",
+			"author": "MCIN",
+			"url": "https://github.com/aces/Loris/wiki/Open-LORIS"
+		},
+		{
+			"identity": "nl:openmorph",
+			"label": "OpenMorph",
+			"description": "Curated list of open access databases with human structural MRI",
+			"author": "Chris Madan",
+			"url": "https:/github.com/cMadan/openMorph"
+		},
+		{
+			"identity": "nl:openneuro",
+			"label": "OpenNeuro",
+			"description": "A free and open platform for analyzing and sharing neuroimaging data",
+			"author": "Stanford CRN",
+			"url": "https://openneuro.org"
+		},
+		{
+			"identity": "nl:nitrcir",
+			"label": "NITRC-IR",
+			"description": "The NITRC Image Repository (IR) is a free, curated, XNAT-based platform for sharing neuroimaging data as part of the NITRC enterprise of resources",
+			"url": "https://www.nitrc.org/ir/",
+			"author": "NITRC"
+		}
+	]
+}
