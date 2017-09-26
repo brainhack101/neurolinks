@@ -103,37 +103,51 @@
     computed: {
       showDefault:{
         get: function(){
-        		 },
+        },
         set: function () {
-        			 console.log("gridC.selected", gridC.selected)
-							 load_json(gridC)
-      			 }
-				}
-     },
+       		console.log("gridC.selected", gridC.selected)
+					parse_data(gridC)
+      	}
+			}
+    },
     watch: {
-      'selected': function() {
+    	'selected': function() {
         console.log("gridC.selected", gridC.selected)
-				load_json(gridC)
+				parse_data(gridC)
       }
-    }//end of watch
+    }
   })
 
+	// Loads all data into obj dictionary
+	var objs = {}
 	load_json = function(gc) {
-  	var xmlhttp;
-  	xmlhttp = new XMLHttpRequest();
-  	xmlhttp.onreadystatechange = function(){
-  		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-				var json_string = xmlhttp.responseText;
-				var json_obj = JSON.parse( json_string );
-				console.log(json_obj)
-				parse_data(json_obj, gc)
+		var counter = 0;
+		gridC.options.forEach(function(opt){
+			opt = opt.value
+  		var xmlhttp;
+  		xmlhttp = new XMLHttpRequest();
+  		xmlhttp.onreadystatechange = function(){
+  			if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+					var json_string = xmlhttp.responseText;
+					objs[opt] = JSON.parse( json_string );
+					console.log(objs[opt])
+					counter++;
+					if (counter == gridC.options.length){
+						// Set "selected" to be the course table
+						gridC.selected = 'jsons/course.json'
+					}
+  			}
   		}
-  	}
-  	xmlhttp.open("GET", gridC.selected, true);
-  	xmlhttp.send();
+  		xmlhttp.open("GET", opt, true);
+  		xmlhttp.send();
+		});
 	};
+	// Load data on page load
+	load_json(gridC)
 
-	parse_data = function(data, gc) {
+	// Creates current table
+	parse_data = function(gc) {
+		data = objs[gc.selected]
 		var onts = data.ontologies;
 		var terms = data.terms;
 		var items = data.entities;
@@ -142,6 +156,8 @@
 		terms.sort(function(a, b){
   		return a.priority > b.priority;
 		});
+		
+		// Sets column names
 		gc.gridColumns = []
 		terms.forEach( function(term){
 			if (! ('hide' in term && term.hide == true)) {
@@ -153,6 +169,7 @@
 			}
 		});
 		
+		// Puts data into table
 		var stacks = []
 		items.forEach( function(itm){
 			var stack = {}
@@ -160,7 +177,7 @@
 				if (term !== "Platforms") { var ind = terms.find(function(a) {return a.pretty === term}).label }
 				switch(term){
 					case "URL":
-						stack[term] = shorturl(itm[ind], 30 - (gc.gridColumns.length-5)*5 )
+						stack[term] = short_url(itm[ind], 30 - (gc.gridColumns.length-5)*3 )
 						break;
 					case "Platforms":
 						stack[term] = ""
@@ -190,18 +207,19 @@
 		gc.gridData = stacks
 	};
 	
-	shorturl = function(url, len) {
+	// Shortens long URLs
+	short_url = function(url, len) {
 		if (url.length > len) {
     	return (url.slice(0,len-3)+'...').link(url)
 		} else {
       return url.link(url)
 		}
 	};
+
+	// Puts a picture that links to a thing
 	platforms = function(url, logo) {
 		return ("<img height='25px' src='" + logo + "' />").link(url)
 	};
-	
-	gridC.selected = 'jsons/course.json'
 
 </script>
 	</div>
