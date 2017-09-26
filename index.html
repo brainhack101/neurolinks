@@ -160,7 +160,7 @@
 				if (term !== "Platforms") { var ind = terms.find(function(a) {return a.pretty === term}).label }
 				switch(term){
 					case "URL":
-						stack[term] = shorturl(itm[ind], 30 - (terms.length-5)*5 )
+						stack[term] = shorturl(itm[ind], 30 - (gc.gridColumns.length-5)*5 )
 						break;
 					case "Platforms":
 						stack[term] = ""
