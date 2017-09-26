@@ -29,6 +29,7 @@
 		{
 			"label": "description",
 			"pretty": "Description",
+			"hide": true,
 			"priority": 2,
 			"identity": "obo:IAO_0000115",
 			"rdf:type": "AnnotationProperty",
@@ -37,7 +38,7 @@
 		{
 			"label": "url",
 			"pretty": "URL",
-			"priority": 5,
+			"priority": 4,
 			"identity": "dct:source",
 			"rdf:type": "AnnotationProperty",
 			"description": "source URL for accessing the entity"
@@ -64,43 +65,20 @@
 		{
 			"identity": "nl:brainhack101",
 			"label": "Brainhack 101",
-			"description": "Introduction to github, Docker, and Jupyter, as a foundation for doing open neuroscience",
-			"author": "Greg Kiar",
+			"author": "OHBM Open Science SIG",
 			"url": "https://brainhack101.github.io"
-		},
-		{
-			"identity": "nl:brainintensive",
-			"label": "Online Brian Intensive",
-			"description": "Online course preparing participants for their first brainhack",
-			"author": "Sara Kimmich",
-			"url": "https://www.onlinebrainintensive.com"
 		},
 		{
 			"identity": "nl:repronim",
 			"label": "Repronim",
-			"description": "Material for reproducible neuroimaging analyses course",
 			"author": "David Kennedy",
 			"url": "https://www.reproducibleimaging.org"
 		},
 		{
-			"identity": "nl:labhacks",
-			"label": "LabHacks",
-			"description": "Resources for data driven neuroscientists",
-			"author": "Patrick Beukema",
-			"url": "https:/github.com/pbeukema/LabHacks"
-		},
-		{
 			"identity": "nl:neurodatasci",
 			"label": "NeuroDataScience",
-			"description": "Machine learning, neural networks, data visualization, and reproducibility",
-			"author": "Satra Ghosh",
+			"author": "Chris Holdgraf",
 			"url": "https://github.com/neuro-data-science"
-		},
-		{
-			"identity": "nl:neurosummer",
-			"label": "Neuro Summer Schools",
-			"description": "List of various Neuroscience summer schools around the web",
-			"url": "https://github.com/PhABC/neuroSummerSchools"
 		}
 	]
 }
