@@ -144,7 +144,11 @@
 		gc.gridColumns = []
 		terms.forEach( function(term){
 			if (! ('hide' in term && term.hide == true)) {
-      	gc.gridColumns.push(term.pretty)
+				if (term.pretty == "Boutiques") {
+					gc.gridColumns.push("Platforms")
+				} else {	
+      		gc.gridColumns.push(term.pretty)
+				}
 			}
 		});
 		
@@ -152,16 +156,21 @@
 		items.forEach( function(itm){
 			var stack = {}
 			gc.gridColumns.forEach( function(term){
-				var ind = terms.find(function(a) {return a.pretty === term}).label
+				if (term !== "Platforms") { var ind = terms.find(function(a) {return a.pretty === term}).label }
 				switch(term){
 					case "URL":
 						stack[term] = shorturl(itm[ind], 30 - (terms.length-5)*5 )
 						break;
-					case "Boutiques":
-						if (itm[ind]) {
-							stack[term] = "<img height='25px' src='https://raw.githubusercontent.com/boutiques/boutiques.github.io/master/images/logo.png'/>".link(itm[ind])
-						} else {
-							stack[term] = ""
+					case "Platforms":
+						stack[term] = ""
+						if (itm["boutiquesdescriptor"]) {
+							stack[term] += platforms(itm["boutiquesdescriptor"], "https://raw.githubusercontent.com/boutiques/boutiques.github.io/master/images/logo.png")
+						}
+						if (itm["dockercontainer"]) {
+							stack[term] += platforms(itm["dockercontainer"], "https://secure.gravatar.com/avatar/26da7b36ff8bb5db4211400358dc7c4e.jpg?s=512&r=g&d=mm")
+						}
+						if (itm["singularitycontainer"]) {
+							stack[term] += platforms(itm["singularitycontainer"], "http://singularity.lbl.gov/images/logo/logo.svg")
 						}
 						break;
 					default:
@@ -186,6 +195,9 @@
 		} else {
       return url.link(url)
 		}
+	};
+	platforms = function(url, logo) {
+		return ("<img height='25px' src='" + logo + "' />").link(url)
 	};
 	
 	gridC.selected = 'jsons/course.json'

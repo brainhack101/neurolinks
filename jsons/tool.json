@@ -66,6 +66,24 @@
 			"identity": "nl:boutiquesdesc",
 			"rdf:type": "AnnotationProperty",
 			"description": "URL to boutiques descriptor, if one exists, for a tool"
+		},
+		{
+			"label": "dockercontainer",
+			"pretty": "Docker",
+			"hide": true,
+			"priority": 6,
+			"identity": "nl:dockercontainer",
+			"rdf:type": "AnnotationProperty",
+			"description": "URL to docker container, if one exists, for a tool"
+		},
+		{
+			"label": "singularitycontainer",
+			"pretty": "Singularity",
+			"hide": true,
+			"priority": 7,
+			"identity": "nl:singcontainer",
+			"rdf:type": "AnnotationProperty",
+			"description": "URL to singularity container, if one exists, for a tool"
 		}
 	],
 	"entities": [
@@ -75,7 +93,8 @@
 			"description": "fMRI pre-processing pipeline as available in Niak",
 			"author": "Pierre Olivier Quirion",
 			"url": "https://github.com/SIMEXP/niak/",
-			"boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/FmriPreprocess.json"
+			"boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/FmriPreprocess.json",
+			"dockercontainer": "https://hub.docker.com/r/simexp/niak-cog/"
 		},
 		{
 			"identity": "nl:neurodocker",
@@ -90,7 +109,8 @@
 			"description": "A worker to execute PSOM tasks. Meant to be launched by PSOM itself",
 			"author": "Pierre Olivier Quirion",
 			"url": "https://github.com/SIMEXP/psom/",
-			"boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/PsomWorker.json"
+			"boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/PsomWorker.json",
+			"dockercontainer": "https://hub.docker.com/r/simexp/niak-boss/"
 		},
 		{
 			"identity": "nl:ndmg",
@@ -98,7 +118,9 @@
 			"description": "One-click pipeline for structural connectome estimation at scale",
 			"author": "Greg Kiar",
 			"url": "https://github.com/neurodata/ndmg",
-			"boutiquesdescriptor": "https://github.com/neurodata/boutiques-tools/tree/master/cbrain_task_descriptors"
+			"boutiquesdescriptor": "https://github.com/neurodata/boutiques-tools/tree/master/cbrain_task_descriptors",
+			"dockercontainer": "https://hub.docker.com/r/bids/ndmg/",
+			"singularitycontainer": "https://singularity-hub.org/containers/2438/"
 		}
 	]
 }
