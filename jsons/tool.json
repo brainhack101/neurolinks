@@ -1,126 +1,126 @@
 {
-	"ontologies": [
-		"@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .",
-		"@prefix nl: <http://brainhack101.github.io/neurolinks/> .",
-		"@prefix bfo: <http://www.ifomis.org/bfo/1.1#> .",
-		"@prefix dct: <http://purl.org/dc/terms/> .",
-		"@prefix nlx: <http://neurolex.org/wiki/> .",
-		"@prefix obo: <http://purl.obolibrary.org/obo/> .",
-		"@prefix owl: <http://www.w3.org/2002/07/owl#> .",
-		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
-		"@prefix sio: <http://semanticscience.org/resource/> .",
-		"@prefix xml: <http://www.w3.org/XML/1998/namespace> .",
-		"@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
-		"@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .",
-		"@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .",
-		"@prefix meta: <http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl#> .",
-		"@prefix nidm: <http://purl.org/nidash/nidm#> .",
-		"@prefix onli: <http://neurolog.unice.fr/ontoneurolog/v3.0/instrument.owl#> .",
-		"@prefix prov: <http://www.w3.org/ns/prov#> .",
-		"@prefix provone: <http://purl.org/provone#> .",
-		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
-		"@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .",
-		"@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .",
-		"@prefix swrl: <http://www.w3.org/2003/11/swrl#> .",
-		"@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .",
-		"@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> ."
-	],
-	"terms": [
-		{
-			"label": "description",
-			"pretty": "Description",
-			"priority": 2,
-			"identity": "obo:IAO_0000115",
-			"rdf:type": "AnnotationProperty",
-			"description": "brief description of the entity"
-		},
-		{
-			"label": "url",
-			"pretty": "URL",
-			"priority": 4,
-			"identity": "dct:source",
-			"rdf:type": "AnnotationProperty",
-			"description": "source URL for accessing the entity"
-		},
-		{
-			"label": "label",
-			"pretty": "Tool",
-			"priority": 1,
-			"identity": "rdfs:label",
-			"rdf:type": "AnnotationProperty",
-			"description": "entity name"
-		},
-		{
-			"label": "author",
-			"pretty": "Author",
-			"hide": false,
-			"priority": 3,
-			"identity": "prov:wasCreatedBy",
-			"rdf:type": "ObjectProperty",
-			"description": "the corresponding author of the entity"
-		},
-		{
-			"label": "boutiquesdescriptor",
-			"pretty": "Boutiques",
-			"priority": 5,
-			"identity": "nl:boutiquesdesc",
-			"rdf:type": "AnnotationProperty",
-			"description": "URL to boutiques descriptor, if one exists, for a tool"
-		},
-		{
-			"label": "dockercontainer",
-			"pretty": "Docker",
-			"hide": true,
-			"priority": 6,
-			"identity": "nl:dockercontainer",
-			"rdf:type": "AnnotationProperty",
-			"description": "URL to docker container, if one exists, for a tool"
-		},
-		{
-			"label": "singularitycontainer",
-			"pretty": "Singularity",
-			"hide": true,
-			"priority": 7,
-			"identity": "nl:singcontainer",
-			"rdf:type": "AnnotationProperty",
-			"description": "URL to singularity container, if one exists, for a tool"
-		}
-	],
-	"entities": [
-		{
-			"identity": "nl:niakfmripreproc",
-			"label": "NIAK fMRI Preprocess",
-			"description": "fMRI pre-processing pipeline as available in Niak",
-			"author": "Pierre Olivier Quirion",
-			"url": "https://github.com/SIMEXP/niak/",
-			"boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/FmriPreprocess.json",
-			"dockercontainer": "https://hub.docker.com/r/simexp/niak-cog/"
-		},
-		{
-			"identity": "nl:neurodocker",
-			"label": "Neurodocker",
-			"description": "Generate custom Docker images with neuroimaging software, and minimize existing Docker containers",
-			"author": "Jakub Kaczmarzyk",
-			"url": "https://github.com/kaczmarj/neurodocker"
-		},
-		{
-			"identity": "nl:psomworker",
-			"label": "PSOM Worker",
-			"description": "A worker to execute PSOM tasks. Meant to be launched by PSOM itself",
-			"author": "Pierre Olivier Quirion",
-			"url": "https://github.com/SIMEXP/psom/",
-			"boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/PsomWorker.json",
-			"dockercontainer": "https://hub.docker.com/r/simexp/niak-boss/"
-		},
-		{
-			"identity": "nl:ndmg",
-			"label": "ndmg",
-			"description": "One-click pipeline for structural connectome estimation at scale",
-			"author": "Greg Kiar",
-			"url": "https://github.com/neurodata/ndmg",
-			"boutiquesdescriptor": "https://github.com/neurodata/boutiques-tools/tree/master/cbrain_task_descriptors",
-			"dockercontainer": "https://hub.docker.com/r/bids/ndmg/",
-			"singularitycontainer": "https://singularity-hub.org/containers/2438/"
-		}
-	]
+    "entities": [
+        {
+            "author": "Jakub Kaczmarzyk",
+            "description": "Generate custom Docker images with neuroimaging software, and minimize existing Docker containers",
+            "identity": "nl:neurodocker",
+            "label": "Neurodocker",
+            "url": "https://github.com/kaczmarj/neurodocker"
+        },
+        {
+            "author": "Greg Kiar",
+            "boutiquesdescriptor": "https://github.com/neurodata/boutiques-tools/tree/master/cbrain_task_descriptors",
+            "description": "One-click pipeline for structural connectome estimation at scale",
+            "dockercontainer": "https://hub.docker.com/r/bids/ndmg/",
+            "identity": "nl:ndmg",
+            "label": "ndmg",
+            "singularitycontainer": "https://singularity-hub.org/containers/2438/",
+            "url": "https://github.com/neurodata/ndmg"
+        },
+        {
+            "author": "SIMEXP",
+            "boutiquesdescriptor": "https://raw.githubusercontent.com/glatard/cbrain-plugins-psom/master/cbrain_task_descriptors/FmriPreprocess.json",
+            "description": "fMRI pre-processing pipeline as available in Niak. More information at https://github.com/SIMEXP/niak",
+            "identity": "nl:Niak_fmri_preprocess",
+            "label": "Niak_fmri_preprocess",
+            "singularitycontainer": "https://hub.docker.com/r/simexp/niak-cog",
+            "url": "http://niak.simexp-lab.org"
+        },
+        {
+            "author": "SIMEXP",
+            "boutiquesdescriptor": "https://raw.githubusercontent.com/glatard/cbrain-plugins-psom/master/cbrain_task_descriptors/PsomWorker.json",
+            "description": "A worker to execute PSOM tasks. Meant to be launched by PSOM itself.",
+            "identity": "nl:PSOM_Worker",
+            "label": "PSOM Worker",
+            "singularitycontainer": "hub.docker.com/r/simexp/niak-boss",
+            "url": "http://niak.simexp-lab.org"
+        }
+    ],
+    "ontologies": [
+        "@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .",
+        "@prefix nl: <http://brainhack101.github.io/neurolinks/> .",
+        "@prefix bfo: <http://www.ifomis.org/bfo/1.1#> .",
+        "@prefix dct: <http://purl.org/dc/terms/> .",
+        "@prefix nlx: <http://neurolex.org/wiki/> .",
+        "@prefix obo: <http://purl.obolibrary.org/obo/> .",
+        "@prefix owl: <http://www.w3.org/2002/07/owl#> .",
+        "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
+        "@prefix sio: <http://semanticscience.org/resource/> .",
+        "@prefix xml: <http://www.w3.org/XML/1998/namespace> .",
+        "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+        "@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .",
+        "@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .",
+        "@prefix meta: <http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl#> .",
+        "@prefix nidm: <http://purl.org/nidash/nidm#> .",
+        "@prefix onli: <http://neurolog.unice.fr/ontoneurolog/v3.0/instrument.owl#> .",
+        "@prefix prov: <http://www.w3.org/ns/prov#> .",
+        "@prefix provone: <http://purl.org/provone#> .",
+        "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+        "@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .",
+        "@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .",
+        "@prefix swrl: <http://www.w3.org/2003/11/swrl#> .",
+        "@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .",
+        "@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> ."
+    ],
+    "terms": [
+        {
+            "description": "brief description of the entity",
+            "identity": "obo:IAO_0000115",
+            "label": "description",
+            "pretty": "Description",
+            "priority": 2,
+            "rdf:type": "AnnotationProperty"
+        },
+        {
+            "description": "source URL for accessing the entity",
+            "identity": "dct:source",
+            "label": "url",
+            "pretty": "URL",
+            "priority": 4,
+            "rdf:type": "AnnotationProperty"
+        },
+        {
+            "description": "entity name",
+            "identity": "rdfs:label",
+            "label": "label",
+            "pretty": "Tool",
+            "priority": 1,
+            "rdf:type": "AnnotationProperty"
+        },
+        {
+            "description": "the corresponding author of the entity",
+            "hide": false,
+            "identity": "prov:wasCreatedBy",
+            "label": "author",
+            "pretty": "Author",
+            "priority": 3,
+            "rdf:type": "ObjectProperty"
+        },
+        {
+            "description": "URL to boutiques descriptor, if one exists, for a tool",
+            "identity": "nl:boutiquesdesc",
+            "label": "boutiquesdescriptor",
+            "pretty": "Boutiques",
+            "priority": 5,
+            "rdf:type": "AnnotationProperty"
+        },
+        {
+            "description": "URL to docker container, if one exists, for a tool",
+            "hide": true,
+            "identity": "nl:dockercontainer",
+            "label": "dockercontainer",
+            "pretty": "Docker",
+            "priority": 6,
+            "rdf:type": "AnnotationProperty"
+        },
+        {
+            "description": "URL to singularity container, if one exists, for a tool",
+            "hide": true,
+            "identity": "nl:singcontainer",
+            "label": "singularitycontainer",
+            "pretty": "Singularity",
+            "priority": 7,
+            "rdf:type": "AnnotationProperty"
+        }
+    ]
 }
