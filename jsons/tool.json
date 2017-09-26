@@ -1,15 +1,6 @@
 {
     "entities": [
         {
-            "author": "Pierre Olivier Quirion",
-            "boutiquesdescriptor": "https://raw.githubusercontent.com/SIMEXP/cbrain-plugins-psom/master/cbrain_task_descriptors/FmriPreprocess.json",
-            "description": "fMRI pre-processing pipeline as available in Niak",
-            "dockercontainer": "https://hub.docker.com/r/simexp/niak-cog/",
-            "identity": "nl:niakfmripreproc",
-            "label": "NIAK fMRI Preprocess",
-            "url": "https://github.com/SIMEXP/niak/"
-        },
-        {
             "author": "Jakub Kaczmarzyk",
             "description": "Generate custom Docker images with neuroimaging software, and minimize existing Docker containers",
             "identity": "nl:neurodocker",
