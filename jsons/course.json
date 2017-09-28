@@ -102,7 +102,7 @@
 			"url": "https://github.com/PhABC/neuroSummerSchools"
 		},
 		{
-			"identity": "nl:neurosummer",
+			"identity": "nl:neurohackweek",
 			"label": "Neurohackweek",
 			"description": "Summer Institute in Neuroimaging and Data Science",
 			"url": "https://neurohackweek.github.io"
