@@ -79,6 +79,13 @@
 			"label": "NeuroDataScience",
 			"author": "Chris Holdgraf",
 			"url": "https://github.com/neuro-data-science"
+		},
+		{
+			"identity": "nl:nipy",
+			"label": "Nipy",
+			"author": "The Nipy developers",
+			"url": "https://github.com/nipy"
 		}
+
 	]
 }
