@@ -1,3 +1,5 @@
+(before submitting your issue, please delete all irrelevant content from this template)
+
 ## If you are submitting an entry....
   - Please provide the following:
 
