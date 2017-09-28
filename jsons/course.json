@@ -100,6 +100,13 @@
 			"label": "Neuro Summer Schools",
 			"description": "List of various Neuroscience summer schools around the web",
 			"url": "https://github.com/PhABC/neuroSummerSchools"
+		},
+		{
+			"identity": "nl:neurosummer",
+			"label": "Neurohackweek",
+			"description": "Summer Institute in Neuroimaging and Data Science",
+			"url": "https://neurohackweek.github.io"
 		}
+
 	]
 }
