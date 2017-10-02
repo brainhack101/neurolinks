@@ -88,13 +88,13 @@
             "url": "https://fsl.fmrib.ox.ac.uk/fsl"
         }, 
         {
-            "author": "Oxford Centre for Functional MRI of the Brain (FMRIB)", 
+            "author": "Maarten Mennes", 
             "boutiquesdescriptor": "https://raw.githubusercontent.com/aces/cbrain-plugins-neuro/master/cbrain_task_descriptors/ICA-AROMA.json", 
             "description": "ICA-AROMA (i.e. Independent Component Analyis-based Automatic Removal Of Motion Artifacts) is a data-driven method to identify and remove motion-related independent components from fMRI data.", 
             "dockercontainer": "https://hub.docker.com/r/mcin/ica-aroma", 
             "identity": "nl:ICA_AROMA", 
             "label": "ICA_AROMA", 
-            "url": "https://fsl.fmrib.ox.ac.uk/fsl"
+            "url": "https://github.com/rhr-pruim/ICA-AROMA"
         }, 
         {
             "author": "Oxford Centre for Functional MRI of the Brain (FMRIB)", 
@@ -156,22 +156,13 @@
             "url": "https://github.com/Washington-University/Pipelines"
         }, 
         {
-            "author": "Wellcome Trust Centre for Neuroimaging", 
-            "boutiquesdescriptor": "https://raw.githubusercontent.com/glatard/SPM/master/boutiques/SPM.json", 
-            "description": "See https://github.com/BIDS-Apps/SPM", 
-            "dockercontainer": "https://hub.docker.com/r/bids/spm", 
-            "identity": "nl:SPM", 
-            "label": "SPM", 
-            "url": "http://www.fil.ion.ucl.ac.uk/spm/software/spm12"
-        }, 
-        {
-            "author": "Oxford Centre for Functional MRI of the Brain (FMRIB)", 
-            "boutiquesdescriptor": "https://raw.githubusercontent.com/aces/cbrain-plugins-neuro/master/cbrain_task_descriptors/fsl_probtrackx2.json", 
-            "description": "probabilistic tracking with crossing fibres", 
-            "dockercontainer": "https://hub.docker.com/r/mcin/docker-fsl", 
-            "identity": "nl:fsl_probtrackx2", 
-            "label": "fsl_probtrackx2", 
-            "url": "https://fsl.fmrib.ox.ac.uk/fsl"
+            "author": "Washington University", 
+            "boutiquesdescriptor": "https://raw.githubusercontent.com/big-data-lab-team/cbrain-plugins-hcp/master/cbrain_task_descriptors/prefreesurfer-exec-centos7-fslbuild-centos5.json", 
+            "description": "PreFreeSurferPipelineBatch HCP pipeline", 
+            "dockercontainer": "https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer", 
+            "identity": "nl:PreFreeSurferPipelineBatch-CentOS7", 
+            "label": "PreFreeSurferPipelineBatch-CentOS7", 
+            "url": "https://github.com/Washington-University/Pipelines"
         }
     ], 
     "ontologies": [
