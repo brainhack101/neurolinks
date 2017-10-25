@@ -93,7 +93,7 @@
       options:[
         {text:'Course', value:'jsons/course.json'},
         {text:'Data', value:'jsons/data.json'},
-        {text:'Initiative', value:'jsons/initiative.json'},
+        {text:'Community', value:'jsons/community.json'},
         {text:'Organization', value:'jsons/organization.json'},
         {text:'Tool', value:'jsons/tool.json'}
       ],
@@ -151,24 +151,24 @@
 		var onts = data.ontologies;
 		var terms = data.terms;
 		var items = data.entities;
-		
+
 		// Reorganize columns based on priority
 		terms.sort(function(a, b){
   		return a.priority > b.priority;
 		});
-		
+
 		// Sets column names
 		gc.gridColumns = []
 		terms.forEach( function(term){
 			if (! ('hide' in term && term.hide == true)) {
 				if (term.pretty == "Boutiques") {
 					gc.gridColumns.push("Platforms")
-				} else {	
+				} else {
       		gc.gridColumns.push(term.pretty)
 				}
 			}
 		});
-		
+
 		// Puts data into table
 		var stacks = []
 		items.forEach( function(itm){
@@ -197,7 +197,7 @@
 			});
 			stacks.push(stack);
 		});
-		
+
 		// Reorganize columns based on name
 		stacks.sort(function(a, b){
 			var loc = gc.gridColumns[0]
@@ -206,7 +206,7 @@
 		console.log(stacks);
 		gc.gridData = stacks
 	};
-	
+
 	// Shortens long URLs
 	short_url = function(url, len) {
 		if (url.length > len) {
