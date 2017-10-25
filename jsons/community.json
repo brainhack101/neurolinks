@@ -44,7 +44,7 @@
 		},
 		{
 			"label": "label",
-			"pretty": "Initiative",
+			"pretty": "Community",
 			"priority": 1,
 			"identity": "rdfs:label",
 			"rdf:type": "AnnotationProperty",
@@ -66,6 +66,12 @@
 			"description": "A simple and intuitive way to organize and describe neuroimaging and behavioral data",
 			"url": "http://bids.neuroimaging.io",
 			"author": "Chris Gorgolewski"
+		},
+		{
+			"identity": "nl:neurostars",
+			"label": "Neurostars",
+			"description": "A question and answer site for neuroinformatics",
+			"url": "http://neurostars.org",
 		},
 		{
 			"identity": "nl:nidm",
