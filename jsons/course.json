@@ -106,6 +106,12 @@
 			"label": "Neurohackweek",
 			"description": "Summer Institute in Neuroimaging and Data Science",
 			"url": "https://neurohackweek.github.io"
+		},
+		{
+			"identity": "nl:mind",
+			"label": "Methods in Neuroscience at Dartmouth (MIND)",
+			"description": "Methods in Neuroscience at Dartmouth (MIND) computational summer school",
+			"url": "https://summer-mind.github.io/"
 		}
 
 	]
