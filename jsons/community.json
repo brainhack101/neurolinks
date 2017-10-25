@@ -71,7 +71,7 @@
 			"identity": "nl:neurostars",
 			"label": "Neurostars",
 			"description": "A question and answer site for neuroinformatics",
-			"url": "http://neurostars.org",
+			"url": "http://neurostars.org"
 		},
 		{
 			"identity": "nl:nidm",
