@@ -177,8 +177,11 @@
 				if (term !== "Platforms") { var ind = terms.find(function(a) {return a.pretty === term}).label }
 				switch(term){
 					case "URL":
-						stack[term] = short_url(itm[ind], 30 - (gc.gridColumns.length-5)*3 )
+						stack[term] = shorten(itm[ind], 30 - (gc.gridColumns.length-5)*3, true)
 						break;
+          case "Description":
+            stack[term] = shorten(itm[ind], 100, false)
+            break;
 					case "Platforms":
 						stack[term] = ""
 						if (itm["boutiquesdescriptor"]) {
@@ -208,11 +211,19 @@
 	};
 
 	// Shortens long URLs
-	short_url = function(url, len) {
-		if (url.length > len) {
-    	return (url.slice(0,len-3)+'...').link(url)
+	shorten = function(patter, len, link) {
+		if (patter.length > len) {
+      if (link) {
+        return (patter.slice(0,len-3)+'...').link(patter)
+      } else {
+        return patter.slice(0,len-3)+'...'
+      }
 		} else {
-      return url.link(url)
+      if (link) {
+        return patter.link(patter)
+      } else {
+        return patter
+      }
 		}
 	};
 
